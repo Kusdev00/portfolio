@@ -1,48 +1,21 @@
 import type { Metadata } from "next";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import ThemeToggle from "@/components/ThemeToggle";
 import Footer from "@/components/Footer";
 
+const mono = JetBrains_Mono({ subsets: ["latin"], display: "swap" });
+
 export const metadata: Metadata = {
-  title: "[Your Name] | Python Developer",
-  description:
-    "Python developer specializing in web applications, automation, and backend systems. Based in Estonia. Available for freelance projects.",
-  keywords: [
-    "Python developer",
-    "freelance",
-    "web development",
-    "automation",
-    "Flask",
-    "API",
-  ],
-  authors: [{ name: "[Your Name]" }],
-  openGraph: {
-    title: "[Your Name] | Python Developer",
-    description:
-      "Python developer specializing in web applications, automation, and backend systems.",
-    type: "website",
-    locale: "en_US",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "[Your Name] | Python Developer",
-    description:
-      "Python developer specializing in web applications, automation, and backend systems.",
-  },
-  robots: "index, follow",
+  title: "Markus — Python Developer from Estonia",
+  description: "17-year-old Python & full-stack developer from Estonia.",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="antialiased">
+    <html lang="en" className="dark">
+      <body className={mono.className} style={{ minHeight: "100vh", backgroundColor: "var(--bg)", color: "var(--fg)", margin: 0 }}>
         <Navbar />
-        <ThemeToggle />
         <main>{children}</main>
         <Footer />
       </body>

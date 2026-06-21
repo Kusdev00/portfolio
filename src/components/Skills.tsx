@@ -1,68 +1,50 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-
-const skills = [
-  { name: "Python", level: 90 },
-  { name: "Flask / FastAPI", level: 85 },
-  { name: "JavaScript / TypeScript", level: 75 },
-  { name: "React / Next.js", level: 70 },
-  { name: "HTML / CSS / Tailwind", level: 85 },
-  { name: "Git / GitHub", level: 80 },
-  { name: "REST APIs", level: 80 },
-  { name: "SQL / SQLite", level: 70 },
-  { name: "FFmpeg / Video Processing", level: 75 },
-  { name: "Docker", level: 60 },
-  { name: "Linux / CLI", level: 80 },
-  { name: "Automation / Scripting", level: 90 },
+const SKILLS = [
+  { name: "Python", level: 92 }, { name: "Flask / FastAPI", level: 85 },
+  { name: "FFmpeg / Video", level: 80 }, { name: "JavaScript / TypeScript", level: 72 },
+  { name: "React / Next.js", level: 68 }, { name: "HTML / CSS / Tailwind", level: 82 },
+  { name: "Git / GitHub", level: 85 }, { name: "REST APIs", level: 80 },
+  { name: "NLP / Extraction", level: 70 }, { name: "Streamlit / Dashboards", level: 75 },
+  { name: "SQL / SQLite", level: 65 }, { name: "Automation / Scripting", level: 90 },
 ];
 
+const box: React.CSSProperties = { maxWidth: 860, marginInline: "auto", paddingInline: 32 };
+const K = ({ c }: { c: React.ReactNode }) => <span style={{color:"var(--syntax-comment)", fontStyle:"italic"}}>{c}</span>;
+
 export default function Skills() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const ref = useRef<HTMLDivElement>(null);
+  const [vis, setVis] = useState(false);
+  useEffect(() => {
+    if (!ref.current) return;
+    const o = new IntersectionObserver((e) => e.forEach((x) => x.isIntersecting && setVis(true)), { threshold: 0.15 });
+    o.observe(ref.current); return () => o.disconnect();
+  }, []);
 
   return (
-    <section id="skills" className="py-24 px-6 bg-[var(--card)]" ref={ref}>
-      <div className="max-w-4xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="text-3xl md:text-4xl font-bold mb-3"
-        >
-          Skills
-        </motion.h2>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.1 }}
-          className="w-16 h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] rounded mb-10"
-        />
-
-        <div className="grid sm:grid-cols-2 gap-6">
-          {skills.map((skill, i) => (
-            <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, x: -20 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: i * 0.05, duration: 0.4 }}
-            >
-              <div className="flex justify-between mb-2">
-                <span className="font-medium text-sm">{skill.name}</span>
-                <span className="text-xs text-[var(--secondary)]">{skill.level}%</span>
-              </div>
-              <div className="h-2 bg-[var(--card-border)] rounded-full overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={inView ? { width: `${skill.level}%` } : {}}
-                  transition={{ delay: i * 0.05 + 0.2, duration: 0.6, ease: "easeOut" }}
-                  className="h-full bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] rounded-full"
-                />
-              </div>
-            </motion.div>
-          ))}
-        </div>
+    <section id="skills" style={{ paddingBlock: 112, ...box }} ref={ref}>
+      <div style={{ marginBottom: 48 }}>
+        <div style={{ fontSize: 14, color: "var(--syntax-comment)" }}>/* 02 — Skills */</div>
+        <div style={{ marginTop: 12, height: 3, width: 48, borderRadius: 2, background: "var(--primary)" }} className="glow-blue" />
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "28px 40px" }}>
+        {SKILLS.map((s) => (
+          <div key={s.name}>
+            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8, fontSize: 14 }}>
+              <span style={{ color: "var(--fg)" }}>{s.name}</span>
+              <K c={`${s.level}%`} />
+            </div>
+            <div style={{ height: 8, borderRadius: 4, overflow: "hidden", background: "var(--surface-alt)" }}>
+              <div style={{
+                height: "100%", borderRadius: 4, width: vis ? `${s.level}%` : "0%",
+                background: `linear-gradient(90deg, color-mix(in oklab, var(--primary) 60%, transparent), var(--primary))`,
+                boxShadow: `0 0 12px color-mix(in oklab, var(--primary) 50%, transparent)`,
+                transition: "width 1.2s ease-out",
+              }} />
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
