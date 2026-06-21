@@ -1,7 +1,5 @@
 # Markus — Portfolio
 
-Dark-themed, coding/terminal-inspired portfolio for a 17-year-old Python developer from Estonia.
-
 **Live:** https://kusdev00.github.io/portfolio/
 
 ## Tech Stack
