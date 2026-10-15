@@ -10,7 +10,7 @@ const C = ({ c }: { c: React.ReactNode }) => <span style={{color:"var(--syntax-c
 
 const PROJECTS = [
   { file: "scrapepro.py", date: "2026", name: "ScrapePro", desc: "Professional web scraping CLI toolkit. Auto-detects page structure, CSS/XPath selectors, site crawling, change detection, export to JSON/CSV/XLSX/SQLite.", tags: ["Python","CLI","Scraping"], github: "https://github.com/Kusdev00/scrapepro" },
-  { file: "ai_clipper.py", date: "07.2026", name: "AIClipper", desc: "Automated video clipping pipeline. Flask API, FFmpeg blur effects for 9:16, Kokoro TTS subtitles, concurrent job processing.", tags: ["Python","Flask","FFmpeg"], github: null },
+  { file: "ai_clipper.py", date: "07.2026", name: "AIClipper", desc: "Automated video clipping pipeline. Flask API, FFmpeg blur effects for 9:16, Kokoro TTS subtitles, concurrent job processing.", tags: ["Python","Flask","FFmpeg"], github: "https://github.com/Kusdev00/ai-clipper" },
   { file: "trend_engine.py", date: "06.2026", name: "TrendEngine", desc: "Viral story discovery. Reddit, Google Trends, News RSS. NLP entity extraction, velocity scoring, Streamlit dashboard.", tags: ["Python","NLP","Streamlit"], github: null },
   { file: "video_gen.py", date: "06.2026", name: "VideoGen", desc: "TikTok-ready video generation. Pillow text burning, TTS narration, ffmpeg subprocess. Windows-compatible.", tags: ["Python","FFmpeg","TTS"], github: null },
   { file: "discord_bot.py", date: "09.2026", name: "DiscordBot", desc: "Modular Discord bot (discord.py): customizable welcome system with rich embeds, slash commands, cog-based architecture, per-guild JSON config, structured logging.", tags: ["Python","discord.py","Bot"], github: "https://github.com/Kusdev00/discord-bot" },

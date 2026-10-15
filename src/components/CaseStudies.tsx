@@ -25,7 +25,7 @@ const CASES = [
     approach: "Designed a Flask REST API with a concurrent job queue: clients submit a video, workers run FFmpeg blur effects for 9:16 output and generate subtitles with Kokoro TTS, rendering automatically.",
     result: "One submission produces a finished vertical clip with burned-in subtitles — no manual editing steps, jobs processed in parallel instead of one at a time.",
     stack: ["Python", "Flask REST API", "FFmpeg", "Kokoro TTS"],
-    link: null,
+    link: { label: "github.com/Kusdev00/ai-clipper", href: "https://github.com/Kusdev00/ai-clipper" },
   },
 ];
 
