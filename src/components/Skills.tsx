@@ -25,7 +25,7 @@ export default function Skills() {
   return (
     <section id="skills" style={{ paddingBlock: 112, ...box }} ref={ref}>
       <div style={{ marginBottom: 48 }}>
-        <div style={{ fontSize: 14, color: "var(--syntax-comment)" }}>/* 02 — Skills */</div>
+        <div style={{ fontSize: 14, color: "var(--syntax-comment)" }}>{"/* 02 — Skills */"}</div>
         <div style={{ marginTop: 12, height: 3, width: 48, borderRadius: 2, background: "var(--primary)" }} className="glow-blue" />
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "28px 40px" }}>

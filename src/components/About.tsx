@@ -7,7 +7,7 @@ const box: React.CSSProperties = { maxWidth: 860, marginInline: "auto", paddingI
 function Label({ n, title }: { n: string; title: string }) {
   return (
     <div style={{ marginBottom: 48 }}>
-      <div style={{ fontSize: 14, color: "var(--syntax-comment)" }}>/* {n} — {title} */</div>
+      <div style={{ fontSize: 14, color: "var(--syntax-comment)" }}>{"/* "}{n}{" — "}{title}{" */"}</div>
       <div style={{ marginTop: 12, height: 3, width: 48, borderRadius: 2, background: "var(--primary)" }} className="glow-blue" />
     </div>
   );

@@ -23,7 +23,7 @@ export default function Experience() {
     <section id="experience" style={{ paddingBlock: 112, ...box }} ref={ref}>
       <motion.div initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.4 }}>
         <div style={{ marginBottom: 48 }}>
-          <div style={{ fontSize: 14, color: "var(--syntax-comment)" }}>/* 04 — Experience */</div>
+          <div style={{ fontSize: 14, color: "var(--syntax-comment)" }}>{"/* 04 — Experience */"}</div>
           <div style={{ marginTop: 12, height: 3, width: 48, borderRadius: 2, background: "var(--primary)" }} className="glow-blue" />
         </div>
       </motion.div>
